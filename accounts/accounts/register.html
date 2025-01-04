@@ -1,0 +1,57 @@
+{% extends "accounts/base.html" %}
+{% load widget_tweaks %}
+{% load static %}
+{% block content %}
+    <div class="container mt-3" id="card-login">
+        <div class="card p-3 login-border" style="margin-top: 60px;height: auto;flex-direction: column">
+            <span class="text-center mt-3 text-pulse txt-sm2"><strong>🌏Signup🌍</strong></span>
+            <!--Messages from backend-->
+            {% for message in messages %}
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            {% if message.tags == 'error' %}
+            <script>
+                var m = "{{ message }}";
+                swal("Denied !", m, "error")
+            </script>
+            {% elif message.tags == 'success' %}
+            <script>
+                var m = "{{ message }}";
+                swal("perfect!", m, "success")
+            </script>
+            {% endif %}
+        {% endfor %}
+            <form method="POST" action="/register" autocomplete="off">
+                {% csrf_token %}
+                <div class="input-group mb-2 mt-4">
+                    {{ form.first_name }}
+                </div>    
+                <div class="input-group mb-2 mt-4">
+                    {{ form.last_name }}
+                </div>    
+                <div class="input-group mb-2 mt-4">
+                    {{ form.email }}
+                </div>  
+                <div class="input-group mb-2 mt-4">
+                    {{ form.student_id }}
+                </div>  
+                <div class="input-group mb-2 mt-4">
+                    {{ form.password1 }}
+                </div>  
+                <div class="input-group mb-2 mt-4">
+                    {{ form.password2 }}
+                </div>  
+                <div class="form-check form-switch">
+                    <input class="form-check-input txt-sm2" onclick="myFunction()" type="checkbox" style="float: right">
+                </div>  
+                <div class="d-grid gap-2 mt-3">
+                    <input class="btn btn-success btn-sm btn-s mt-3 mb-3" type="submit" value="Enter" id="btn-enter">
+                </div>
+            </form>
+            <center class="mt-1 mb-1">
+                <i class="fas fa-globe mt-1 mb-1"  id="login-globe"></i>
+            </center>
+        </div>
+    </div>
+
+    {% endblock content %}
+ 

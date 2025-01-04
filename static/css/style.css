@@ -1,0 +1,23 @@
+body {
+    height: 100%;
+    margin: 0;
+    max-width: 100%;
+ }
+
+ #card-login{
+    width: 350px;
+   }
+   .login-border{
+    border-top: .4rem solid #198754;
+    border-bottom: .4rem solid #198754;
+    border-radius: 10px;
+   }
+   #btn-enter{
+    border-radius: 15px;
+    font-size: 16px;
+   }
+  
+   #login-globe{
+    color:#198754; 
+    font-size:120px;
+   }
